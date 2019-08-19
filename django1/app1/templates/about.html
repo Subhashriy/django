@@ -1,0 +1,31 @@
+<!--<!DOCTYPE html>
+<head>
+    <title>About</title>
+</head>
+
+<body>
+<h1 style="background-color: darkslategrey;color:white"><center>About Page</center></h1>
+<hr>
+<p><center>This is the About Page</center></p>
+</body>
+-->
+
+{% extends 'base.html' %}
+
+{% block title %} App | About {% endblock title%}
+
+
+{% block content %}
+<h1>About Page</h1>
+<hr>
+<p><center>This is the About Page</center></p>
+
+<hr>
+
+<form action='add' method="post">
+        {% csrf_token %}
+            <input type="number" name="num1">
+            <input type="number" name="num2">
+            <input type="submit">
+    </form>
+{% endblock %}

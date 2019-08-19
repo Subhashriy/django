@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="mx-auto mt-3" style="width: 500px">
+    <div class="p-3 border">
+        <form method="POST">      
+        <legend class="from-group">Detail View</legend>
+        <hr>
+        {% csrf_token %}
+        <p>Name: {{object.name}}</p> <p>Completed: {{object.completed}}</p>
+        {% if object.owner == user %}
+        <a class="btn btn-secondary mt-3 mr-2"  href="{% url 'update' object.id %}" type="submit">Edit</a>
+        <a class="btn btn-danger mt-3" href="{% url 'delete' object.id %}">Delete</a>
+        {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form method="POST" class="p-3">
+    <fieldset class="border p-2 mx-auto" style="width:550px;">
+        <legend class='w-auto'>Delete Todo</legend>
+        {% csrf_token %}
+        <h3>Are you sure to delete the Todo {{object.name}} ? Click Yes to delete.</h3>
+        <button class="btn btn-danger" type="submit">Yes, Delete</button>
+        <a class="btn btn-outline-secondary" href="{% url 'details' object.id %}">Cancel</a>"
+    </fieldset>
+</form>
+
+{% endblock %}
